@@ -95,7 +95,7 @@ body {
   background-color: #149dcc !important;
 }
 .bg-success {
-  background-color: #f7ed4a !important;
+  background-color: transparent!important;
 }
 .bg-info {
   background-color: #82786e !important;
@@ -168,8 +168,8 @@ body {
 }
 .btn-success,
 .btn-success:active {
-  background-color: #f7ed4a !important;
-  border-color: #f7ed4a !important;
+  background-color: transparent!important;
+  border-color: transparent!important;
   color: #3f3c03 !important;
 }
 .btn-success:hover,
@@ -340,14 +340,14 @@ body {
 .btn-success-outline.focus,
 .btn-success-outline.active {
   color: #3f3c03;
-  background-color: #f7ed4a;
-  border-color: #f7ed4a;
+  background-color: transparent;
+  border-color: transparent;
 }
 .btn-success-outline.disabled,
 .btn-success-outline:disabled {
   color: #3f3c03 !important;
-  background-color: #f7ed4a !important;
-  border-color: #f7ed4a !important;
+  background-color: transparent!important;
+  border-color: transparent!important;
 }
 .btn-warning-outline,
 .btn-warning-outline:active {
@@ -430,7 +430,7 @@ body {
   color: #ff3366 !important;
 }
 .text-success {
-  color: #f7ed4a !important;
+  color: transparent!important;
 }
 .text-info {
   color: #82786e !important;
@@ -712,7 +712,7 @@ section.lazy-placeholder:after {
 .cid-rEZe5v2Pov {
   padding-top: 0px;
   padding-bottom: 45px;
-  background-color: #f7ed4a;
+  background-color: transparent;
 }
 .cid-rEZe5v2Pov .mbr-figure {
   margin: 0 auto;
@@ -733,7 +733,7 @@ section.lazy-placeholder:after {
 .cid-rEZ7lcQgdD {
   padding-top: 0px;
   padding-bottom: 30px;
-  background-color: #f7ed4a;
+  background-color: transparent;
 }
 .cid-rEZ7lcQgdD P {
   color: #767676;
@@ -745,7 +745,7 @@ section.lazy-placeholder:after {
 .cid-rEZHshPyU2 {
   padding-top: 30px;
   padding-bottom: 45px;
-  background-color: #f7ed4a;
+  background-color: transparent;
 }
 .cid-rEZHshPyU2 H2 {
   color: #444444;
@@ -756,7 +756,7 @@ section.lazy-placeholder:after {
 .cid-rEZjKXttax {
   padding-top: 0px;
   padding-bottom: 45px;
-  background-color: #f7ed4a;
+  background-color: transparent;
 }
 .cid-rEZjKXttax .mbr-section-subtitle {
   color: #444444;
@@ -838,7 +838,7 @@ section.lazy-placeholder:after {
 .cid-rEZnyk6Cpn {
   padding-top: 30px;
   padding-bottom: 0px;
-  background-color: #f7ed4a;
+  background-color: transparent;
 }
 .cid-rEZnyk6Cpn h3 {
   text-align: center;
@@ -875,7 +875,7 @@ section.lazy-placeholder:after {
 .cid-rEZmsr702m {
   padding-top: 0px;
   padding-bottom: 45px;
-  background-color: #f7ed4a;
+  background-color: transparent;
 }
 .cid-rEZmsr702m [class^="socicon-"]:before,
 .cid-rEZmsr702m [class*=" socicon-"]:before {
