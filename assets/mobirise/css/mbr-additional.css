@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i&display=swap);
-@import url(https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i&display=swap);
 
 
 
@@ -24,7 +24,7 @@ body {
   font-size: 4.8rem;
 }
 .display-4 {
-  font-family: 'Karla', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 1rem;
   font-display: swap;
 }
@@ -40,7 +40,7 @@ body {
   font-size: 2.88rem;
 }
 .display-7 {
-  font-family: 'Karla', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 1rem;
   font-display: swap;
 }
@@ -546,7 +546,7 @@ a:hover {
   border-radius: 100px;
 }
 .form-control {
-  font-family: 'Karla', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 1rem;
   font-display: swap;
 }
@@ -743,7 +743,7 @@ section.lazy-placeholder:after {
   color: #2b2a2a;
 }
 .cid-rEZHshPyU2 {
-  padding-top: 0px;
+  padding-top: 30px;
   padding-bottom: 45px;
   background-image: url("../../../assets/images/background-texture-2000x1213.png");
 }
@@ -836,7 +836,7 @@ section.lazy-placeholder:after {
   text-align: center;
 }
 .cid-rEZnyk6Cpn {
-  padding-top: 0px;
+  padding-top: 30px;
   padding-bottom: 0px;
   background-image: url("../../../assets/images/background-texture-2000x1213.png");
 }
