@@ -24,7 +24,7 @@ background: url("assets/images/layer-01.png");
 
 #hero-mobile {
   display: none;
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/272781/full_illustration.png") no-repeat center bottom/cover;
+  background: url(assets/images/SocialSuccess.png) no-repeat center bottom/cover;
   height: 320px;
 }
 
