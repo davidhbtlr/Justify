@@ -1,15 +1,40 @@
 [
-    {
-      "artist": "artist1",
-      "albums": [
-        {
-          "name": "album_name",
-          "songs": [
-            "song_name1",
-            "song_name2",
-            "song_name3"
-          ]
-        }
-      ]
-    }
-  ]
+	{
+		"artist": "spotify:artist:7gZfnEnfiaHzxARJ2LeXrf",
+		"tracks": [
+			"spotify:track:2l8nEO0vsTRCRnGqQty6qx",
+			"spotify:track:6mKs2kkBgvf090H566n1pd",
+			"spotify:track:6VRwEqn7BvsN0dChfDrMAf",
+			"spotify:track:6AuTg5HcKndQ4baqOSBE2I",
+			"spotify:track:6SOBCABlykuNrO04rmXpLs",
+			"spotify:track:057sdYirt745dVbe48m7Hl",
+			"spotify:track:1KWLyoPChJrBQFscO8NW8D",
+			"spotify:track:5KhFaq45chTw8RGfWo8T8J",
+			"spotify:track:27oFpFktCq9JIXjJQRuv7a",
+			"spotify:track:4HbiCvH1R7mVOJ7KY7JQBD"
+		],
+		"albums": [
+			"spotify:album:4f8pX9Vjs9uU5aKjqDNcDO",
+			"spotify:album:1ubczeMvCrPHbSEjgfu4a7"
+		]
+	},
+	{
+		"artist": "spotify:artist:7gZfnEnfiaHzxARJ2LeXrf",
+		"tracks": [
+			"spotify:track:2l8nEO0vsTRCRnGqQty6qx",
+			"spotify:track:6mKs2kkBgvf090H566n1pd",
+			"spotify:track:6VRwEqn7BvsN0dChfDrMAf",
+			"spotify:track:6AuTg5HcKndQ4baqOSBE2I",
+			"spotify:track:6SOBCABlykuNrO04rmXpLs",
+			"spotify:track:057sdYirt745dVbe48m7Hl",
+			"spotify:track:1KWLyoPChJrBQFscO8NW8D",
+			"spotify:track:5KhFaq45chTw8RGfWo8T8J",
+			"spotify:track:27oFpFktCq9JIXjJQRuv7a",
+			"spotify:track:4HbiCvH1R7mVOJ7KY7JQBD"
+		],
+		"albums": [
+			"spotify:album:4f8pX9Vjs9uU5aKjqDNcDO",
+			"spotify:album:1ubczeMvCrPHbSEjgfu4a7"
+		]
+	}		
+]

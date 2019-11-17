@@ -18,7 +18,8 @@
     function authorize()
     {
 
-        window.location = 'https://accounts.spotify.com/authorize?client_id=e746c15c3dc4456db8a6fa254b8c6bf5&redirect_uri=http:%2F%2Fapoiat.com%2Fjustify%2Fcallback.php&scope=user-library-modify&response_type=token&state=123';
+        window.location = 'https://accounts.spotify.com/authorize?client_id=e746c15c3dc4456db8a6fa254b8c6bf5&redirect_uri=http:%2F%2Fapoiat.com%2Fjustify%2Fcallback.php&scope=user-library-modify%20playlist-read-private%20playlist-modify-public%20playlist-modify-private&response_type=token&state=123';
+        //window.location = 'callback.php';
         /*
         let client_id = 'e746c15c3dc4456db8a6fa254b8c6bf5';
 
