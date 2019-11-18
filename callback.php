@@ -14,14 +14,17 @@ We are working on it...
     var access_token = result["access_token"];
     var global_var = null;
 
-    // Create an array pool with all songs
-    var tracksPool = [];
-    var albumsPool = [];
-    var MAX_TRACKS_TO_REMOVE_PER_REQUEST = 50;
-    var MAX_ALBUMS_TO_REMOVE_PER_REQUEST = 50;
+    // General global settings / variables.
+    var tracksPool                          = [];
+    var albumsPool                          = [];
 
-    var REMOVE_TRACKS_FUNCTION = false;
-    var REMOVE_ALBUMS_FUNCTION = true;
+    var MAX_TRACKS_TO_REMOVE_PER_REQUEST    = 50;
+    var MAX_ALBUMS_TO_REMOVE_PER_REQUEST    = 50;
+    var MAX_ARTISTS_TO_UNFOLLOW_PER_REQUEST = 50;
+
+    var REMOVE_TRACKS_FUNCTION              = false;
+    var REMOVE_ALBUMS_FUNCTION              = false;
+    var UNFOLLOW_FUNCTION                   = false;
 
     // Get the json data file from server
     $.getJSON("banned_data.json", function(data) {
@@ -52,6 +55,8 @@ We are working on it...
                     albumsPool.push(subvalue);
                 }
             });
+
+            console.log(key, value);
 
         });
 
@@ -284,6 +289,14 @@ We are working on it...
 
         }
 
+        if (UNFOLLOW_FUNCTION)
+        {
+            let remove_requests = [];
+            let init_request = [];
+
+            remove_requests.push(init_request);
+
+        }
 
     });
 
