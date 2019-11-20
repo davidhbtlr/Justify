@@ -295,7 +295,7 @@ We are working on it...
 
                     remove_requests[current_request_num].push(this);
                     current_albums_parsed++;
-                    
+
                 });
 
             } else {
@@ -315,7 +315,11 @@ We are working on it...
                 let current_request = this;
 
                 $.each (current_request, function() {
-                    albums_string += this.split(':')[2] + ",";
+                    if (this != current_request[current_request.length-1]) {
+                        albums_string += this + ",";
+                    } else {
+                        albums_string += this
+                    }
                 });
 
                 console.log(albums_string);
