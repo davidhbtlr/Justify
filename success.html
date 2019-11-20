@@ -23,15 +23,19 @@ We are working on it...
     var TOTAL_REQUESTS_COMPLETED            = 0;
     var TOTAL_REQUESTS_FAILED               = 0;
 
-    var MAX_TRACKS_TO_REMOVE_PER_REQUEST    = 40;
-    var MAX_ALBUMS_TO_REMOVE_PER_REQUEST    = 40;
-    var MAX_ARTISTS_TO_UNFOLLOW_PER_REQUEST = 40;
+    var MAX_TRACKS_TO_REMOVE_PER_REQUEST    = 20;
+    var MAX_ALBUMS_TO_REMOVE_PER_REQUEST    = 20;
+    var MAX_ARTISTS_TO_UNFOLLOW_PER_REQUEST = 20;
 
     var REMOVE_TRACKS_FUNCTION              = true;
     var REMOVE_ALBUMS_FUNCTION              = true;
     var UNFOLLOW_FUNCTION                   = true;
 
     var REDIRECT_LINK                       = "/Justify/success_result.html";
+
+    console.log("MAX_TRACKS_TO_REMOVE_PER_REQUEST", MAX_TRACKS_TO_REMOVE_PER_REQUEST);
+    console.log("MAX_ALBUMS_TO_REMOVE_PER_REQUEST", MAX_ALBUMS_TO_REMOVE_PER_REQUEST);
+    console.log("MAX_ARTISTS_TO_UNFOLLOW_PER_REQUEST", MAX_ARTISTS_TO_UNFOLLOW_PER_REQUEST);
 
     // Get the json data file from server
     $.getJSON("banned_data.json", function(data) {
