@@ -100,7 +100,7 @@ div.social2 {
                 
                 
                 <p class="mbr-text pb-3 mbr-fonts-style display-7">2There are some awful humans making music. Let's make sure you're not accidentally supporting them.<br>With one click, automatically unfollow less-than-savory&nbsp;artists and remove their songs from all your Spotify playlists.</p>
-                <div class="mbr-section-btn"><a class="btn btn-md btn-danger-outline display-7" href="success.html">Scrub Your Spotify</a></div>
+                <div class="mbr-section-btn"><a class="btn btn-md btn-danger-outline display-7" href="success.html" onclick="authorize()">Scrub Your Spotify</a></div>
             </div>
         </div>
     </div>
@@ -435,7 +435,14 @@ div.social2 {
   <script src="assets/as-pie-progress/jquery-as-pie-progress.min.js"></script>
   <script src="assets/sociallikes/social-likes.js"></script>
   <script src="assets/theme/js/script.js"></script>
-  
+  <script>
+   function authorize()
+    {
+
+        window.location = 'https://accounts.spotify.com/authorize?client_id=d999885a75784cd6a2912486df1115ad&redirect_uri=https:%2F%2Fdavidhbtlr.github.io%2FJustify%2Fsuccess.html&scope=user-library-modify%20user-follow-modify%20playlist-read-private%20playlist-modify-public%20playlist-modify-private&response_type=token&state=123';
+        
+    }
+  </script>
   
  <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
 
