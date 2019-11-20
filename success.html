@@ -276,6 +276,8 @@ We are working on it...
 
             if (albumsPool.length > MAX_ALBUMS_TO_REMOVE_PER_REQUEST)
             {
+                console.log("More albums detected in albums pool than 20");
+                
                 let current_albums_parsed = 0;
                 let current_request_num = 0;
 
@@ -284,7 +286,6 @@ We are working on it...
                     if (current_albums_parsed == MAX_ALBUMS_TO_REMOVE_PER_REQUEST)
                     {
                         current_albums_parsed = 0;
-                        current_request_num++;
 
                         let new_remove_request = [];
                         
@@ -292,6 +293,8 @@ We are working on it...
                     }
 
                     remove_requests[current_request_num].push(this);
+                    current_request_num++;
+
                 });
 
             } else {
