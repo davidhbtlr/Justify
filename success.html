@@ -286,6 +286,7 @@ We are working on it...
                     if (current_albums_parsed == MAX_ALBUMS_TO_REMOVE_PER_REQUEST)
                     {
                         current_albums_parsed = 0;
+                        current_request_num++;
 
                         let new_remove_request = [];
                         
@@ -293,8 +294,8 @@ We are working on it...
                     }
 
                     remove_requests[current_request_num].push(this);
-                    current_request_num++;
-
+                    current_albums_parsed++;
+                    
                 });
 
             } else {
