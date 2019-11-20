@@ -15,16 +15,23 @@ We are working on it...
     var global_var = null;
 
     // General global settings / variables.
+    var artistsPool                         = [];
     var tracksPool                          = [];
     var albumsPool                          = [];
+
+    var TOTAL_REQUESTS_IN_QUEUE             = 0;
+    var TOTAL_REQUESTS_COMPLETED            = 0;
+    var TOTAL_REQUESTS_FAILED               = 0;
 
     var MAX_TRACKS_TO_REMOVE_PER_REQUEST    = 50;
     var MAX_ALBUMS_TO_REMOVE_PER_REQUEST    = 50;
     var MAX_ARTISTS_TO_UNFOLLOW_PER_REQUEST = 50;
 
-    var REMOVE_TRACKS_FUNCTION              = false;
-    var REMOVE_ALBUMS_FUNCTION              = false;
-    var UNFOLLOW_FUNCTION                   = false;
+    var REMOVE_TRACKS_FUNCTION              = true;
+    var REMOVE_ALBUMS_FUNCTION              = true;
+    var UNFOLLOW_FUNCTION                   = true;
+
+    var REDIRECT_LINK                       = "/test";
 
     // Get the json data file from server
     $.getJSON("banned_data.json", function(data) {
@@ -56,9 +63,31 @@ We are working on it...
                 }
             });
 
-            console.log(key, value);
+            /* Fill the artists pool */
+            let artist_already_exists = false;
+
+            /* Check if an entry with this artist id already exists. */
+            $.each(artistsPool, function() {
+                if (this == value.artist.split(':')[2]) artist_already_exists = true;
+            });
+
+            /* If not push the entry to the artists pool */
+            if (!artist_already_exists)
+            {
+                artistsPool.push(value.artist.split(':')[2]);
+            }
 
         });
+
+        console.log(artistsPool);
+
+
+        /* Initiate the queue checking after 3 seconds. */
+        setTimeout(function(){ 
+
+            checkQueue();
+
+        }, 3000);
 
         /*
         *  1. Request all user playlists 
@@ -164,12 +193,13 @@ We are working on it...
                                 }
                                 else
                                 {
-                                    console.log("no matches found for playlist " + current_playlist.id);
+                                    //console.log("no matches found for playlist " + current_playlist.id);
                                 }
 
                                 /* Check for any remove requests and proccess them */
                                 $.each(remove_requests, function()
                                 {
+                                    TOTAL_REQUESTS_IN_QUEUE++;
 
                                     /* convert track data to spotify acceptable format before submitting */
                                     let tracks_data = {};
@@ -192,19 +222,25 @@ We are working on it...
                                             'Authorization': 'Bearer ' + access_token
                                         },
                                         success: function(response) {
+                                            /*
                                             console.log(response);
                                             console.log("success: " + response.responseText);
+                                            */
+                                            TOTAL_REQUESTS_COMPLETED++;
                                         },
                                         error: function(response) {
-                                            console.log("error: " + response.responseText);
+                                            //console.log("error: " + response.responseText);
+                                            TOTAL_REQUESTS_FAILED++;
                                         }
                                     });
                                     
 
                                     /* */
                                 });
+                                /*
                                 console.log("All remove requests for this playlist:");
                                 console.log(remove_requests);
+                                */
 
                             },
                             error: function(response) {
@@ -261,6 +297,8 @@ We are working on it...
             /* After sorting / breaking the albums per maximum request, proccess every album request */
             $.each(remove_requests, function() 
             {
+                TOTAL_REQUESTS_IN_QUEUE++;
+
                 /* Create the string including all the albums with proper format */
                 let albums_string = "";
                 $.each (this, function() {
@@ -276,11 +314,13 @@ We are working on it...
                         'Authorization': 'Bearer ' + access_token
                     },
                     success: function(response) {
-                        console.log(response);
-                        console.log("success: " + response);
+                        TOTAL_REQUESTS_COMPLETED++;
+                        //console.log(response);
+                        //console.log("success: " + response);
                     },
                     error: function(response) {
-                        console.log("error: " + response.responseText);
+                        TOTAL_REQUESTS_FAILED++;
+                        //console.log("error: " + response.responseText);
                     }
                 });
 
@@ -296,37 +336,90 @@ We are working on it...
 
             remove_requests.push(init_request);
 
+            if (albumsPool > MAX_ARTISTS_TO_UNFOLLOW_PER_REQUEST)
+            {
+                let current_artists_parsed = 0;
+                let current_request_num = 0;
+
+                $.each(artistsPool, function()
+                {
+                    if (current_artists_parsed == MAX_ARTISTS_TO_UNFOLLOW_PER_REQUEST)
+                    {
+                        current_artists_parsed = 0;
+                        current_request_num++;
+
+                        let new_remove_request = [];
+                        
+                        remove_requests.push(new_remove_request);
+                    }
+
+                    remove_requests[current_request_num].push(this);
+                });
+
+            } else {
+                remove_requests[0] = artistsPool;
+            }
+
+            console.log(remove_requests);
+
+            /* After sorting / breaking the artists per maximum request, proccess every unfollow request */
+            $.each(remove_requests, function() 
+            {
+                TOTAL_REQUESTS_IN_QUEUE++;
+
+                /* Create the string including all the artist ids */
+                let artists_string = "";
+
+                let current_request = this;
+
+                $.each (current_request, function() {
+                    if (this != current_request[current_request.length-1]) {
+                        artists_string += this + ",";
+                    } else {
+                        artists_string += this
+                    }
+                });
+
+
+                /* Perform the request with max artist ids per request */
+                $.ajax({
+                    url: "https://api.spotify.com/v1/me/following?type=artist&ids=" + artists_string + "",
+                    type: "DELETE",
+                    headers: {
+                        'Authorization': 'Bearer ' + access_token
+                    },
+                    success: function(response) {
+                        TOTAL_REQUESTS_COMPLETED++;
+                        //console.log(response);
+                        //console.log("success: " + response);
+                    },
+                    error: function(response) {
+                        TOTAL_REQUESTS_FAILED++;
+                        //console.log("error: " + response.responseText);
+                    }
+                });
+
+            });
+
         }
 
     });
 
-        /* remove last comma */
-        //album_ids = album_ids.substring(0, album_ids.length - 3);
 
+    function checkQueue()
+    {
+        console.log("Current status: IN_QUEUE: " + TOTAL_REQUESTS_IN_QUEUE + " COMPLETED: " + TOTAL_REQUESTS_COMPLETED + " FAILED: " + TOTAL_REQUESTS_FAILED);
 
-        /* Remove albums request */
-        /*
-        $.ajax({
-            url: "https://api.spotify.com/v1/me/albums?ids=" + album_ids + "",
-            type: "DELETE",
-            headers: {
-                'Authorization': 'Bearer ' + access_token
-            },
-            success: function(response) {
-                console.log(response);
-                console.log("success: " + response.responseText);
-            },
-            error: function(response) {
-                console.log("error: " + response.responseText);
-            }
-        });
-        
-        */
+        if (TOTAL_REQUESTS_IN_QUEUE > TOTAL_REQUESTS_COMPLETED + TOTAL_REQUESTS_FAILED)
+        {
+            setTimeout(function () {
+                checkQueue();
+            },2000);
+        } else {
+            window.location = REDIRECT_LINK;
+        }
 
-
-
-
-
+    }
 
         function addslashes( str ) {
             return (str + '').replace(/[\\"']/g, '\\$&').replace(/\u0000/g, '\\0');
