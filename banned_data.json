@@ -465,40 +465,6 @@
             "spotify:album:6rLSSFEeLPpIif3sOs6AM4",
             "spotify:album:2hQVYtzEpTQ1FOhTkO6NfB"
         ]
-    },
-    {
-        "name": "Kodak Black",
-        "artist": "spotify:artist:46SHBwWsqBkxI7EeeBEQG7",
-        "tracks": [
-            "spotify:track:XXX",
-            "spotify:track:XXX",
-            "spotify:track:XXX",
-            "spotify:track:XXX",
-            "spotify:track:XXX",
-            "spotify:track:XXX",
-            "spotify:track:XXX",
-            "spotify:track:XXX",
-            "spotify:track:XXX",
-            "spotify:track:XXX"
-        ],
-        "albums": [
-            "spotify:album:XXX",
-            "spotify:album:XXX",
-            "spotify:album:XXX",
-            "spotify:album:XXX",
-            "spotify:album:XXX",
-            "spotify:album:XXX",
-            "spotify:album:XXX",
-            "spotify:album:XXX",
-            "spotify:album:XXX",
-            "spotify:album:XXX",
-            "spotify:album:XXX",
-            "spotify:album:XXX",
-            "spotify:album:XXX",
-            "spotify:album:XXX",
-            "spotify:album:XXX",
-            "spotify:album:XXX"
-        ]
-    }    
+    } 
 ] 
  

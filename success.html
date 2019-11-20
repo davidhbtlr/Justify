@@ -302,9 +302,6 @@ We are working on it...
                 remove_requests[0] = albumsPool;
             }
 
-            console.log("Album requests:");
-            console.log(remove_requests);
-
             /* After sorting / breaking the albums per maximum request, proccess every album request */
             $.each(remove_requests, function() 
             {
@@ -322,7 +319,6 @@ We are working on it...
                     }
                 });
 
-                console.log(albums_string);
                 /* Perform the request with max 50 albums per */
                 $.ajax({
                     url: "https://api.spotify.com/v1/me/albums?ids=" + albums_string + "",
@@ -434,7 +430,7 @@ We are working on it...
                 checkQueue();
             },2000);
         } else {
-            console.log("Redirecting");
+            //console.log("Redirecting");
             //window.location = REDIRECT_LINK;
         }
 
