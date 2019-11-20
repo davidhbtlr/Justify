@@ -316,9 +316,9 @@ We are working on it...
 
                 $.each (current_request, function() {
                     if (this != current_request[current_request.length-1]) {
-                        albums_string += this + ",";
+                        albums_string += this.split(':')[2] + ",";
                     } else {
-                        albums_string += this
+                        albums_string += this.split(':')[2]
                     }
                 });
 
