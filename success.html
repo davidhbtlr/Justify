@@ -274,7 +274,7 @@ We are working on it...
 
             remove_requests.push(init_request);
 
-            if (albumsPool > MAX_ALBUMS_TO_REMOVE_PER_REQUEST)
+            if (albumsPool.length > MAX_ALBUMS_TO_REMOVE_PER_REQUEST)
             {
                 let current_albums_parsed = 0;
                 let current_request_num = 0;
@@ -298,8 +298,9 @@ We are working on it...
                 remove_requests[0] = albumsPool;
             }
 
+            console.log("Album requests:");
             console.log(remove_requests);
-            
+
             /* After sorting / breaking the albums per maximum request, proccess every album request */
             $.each(remove_requests, function() 
             {
