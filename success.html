@@ -12,20 +12,27 @@ body {
 </style>
 
 
+    <style>
+            html, body, #wrapper {
+               height:100%;
+               width: 100%;
+               margin: 0;
+               padding: 0;
+               border: 0;
+            }
+            #wrapper td {
+               vertical-align: middle;
+               text-align: center;
+            }
+    </style>
 
-<meta name="Loading" content="width=device-width, initial-scale=1">
-                <style>
-                    .responsive2 {
-                      width: 30%;
-                      height: auto;
-                      display: block;
-                      margin-left: auto;
-                      margin-right: auto;
-                      margin-top: 20%;
-                    }
-                </style>
-    <img src="https://i.imgur.com/XQik2O7.gif" class="responsive2">
-    <br>
+<table id="wrapper">
+  <tr>
+    <td><img src="assets/images/Loading.gif" alt=""/></td>
+  </tr>
+</table>
+
+<!-- REMINDER: Make the loading GIF 400px at 150ppi -->
 
 <script>
     var hash = window.location.hash.substr(1);
