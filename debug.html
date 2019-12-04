@@ -27,6 +27,7 @@
         var MAX_ALBUMS_TO_REMOVE_PER_REQUEST    = 50;
         var MAX_ARTISTS_TO_UNFOLLOW_PER_REQUEST = 50;
     
+        var REMOVE_LIKED_TRACKS_FUNCTION        = true;
         var REMOVE_TRACKS_FUNCTION              = true;
         var REMOVE_ALBUMS_FUNCTION              = true;
         var UNFOLLOW_FUNCTION                   = true;
@@ -87,6 +88,84 @@
     
             }, 3000);
     
+
+            /*
+            *  1. Parse the tracksPool array and create request blocks if the number of entries exceed the total defined in MAX_TRACKS_TO_REMOVE_PER_REQUEST
+            *  2. Convert the request block elements to an appropriate songs string
+            *  3. Proccess all the requests
+            */
+            if (REMOVE_LIKED_TRACKS_FUNCTION)
+            {
+                /* First, if songs that need to be removed exceed MAX_TRACKS_TO_REMOVE_PER_REQUEST, break them into requests */
+                let remove_requests = [];
+                let init_request = [];
+
+                remove_requests.push(init_request);
+
+                if (albumsPool.length > MAX_TRACKS_TO_REMOVE_PER_REQUEST)
+                {
+                    
+                    let current_songs_parsed = 0;
+                    let current_request_num = 0;
+    
+                    $.each(tracksPool, function()
+                    {
+                        if (current_songs_parsed == MAX_TRACKS_TO_REMOVE_PER_REQUEST)
+                        {
+                            current_songs_parsed = 0;
+                            current_request_num++;
+    
+                            let new_remove_request = [];
+                            
+                            remove_requests.push(new_remove_request);
+                        }
+    
+                        remove_requests[current_request_num].push(this);
+                        current_songs_parsed++;
+    
+                    });
+    
+                } else {
+                    remove_requests[0] = tracksPool;
+                }
+
+                /* After sorting / breaking the tracks per maximum request, proccess every track request */
+                $.each(remove_requests, function() 
+                {
+                    TOTAL_REQUESTS_IN_QUEUE++;
+    
+                    /* Create the string including all the tracks with proper format */
+                    let tracks_string = "";
+                    let current_request = this;
+    
+                    $.each (current_request, function() {
+                        if (this != current_request[current_request.length-1]) {
+                            tracks_string += this.split(':')[2] + ",";
+                        } else {
+                            tracks_string += this.split(':')[2]
+                        }
+                    });
+    
+                    /* Perform the request with max 50 tracks per */
+                    $.ajax({
+                        url: "https://api.spotify.com/v1/me/tracks?ids=" + tracks_string + "",
+                        type: "DELETE",
+                        headers: {
+                            'Authorization': 'Bearer ' + access_token
+                        },
+                        success: function(response) {
+                            TOTAL_REQUESTS_COMPLETED++;
+                        },
+                        error: function(response) {
+                            TOTAL_REQUESTS_FAILED++;
+                            console.log(response);
+                        }
+                    });
+    
+                });
+
+            }
+
             /*
             *  1. Request all user playlists 
             *  2. Check every song for a match in our tracksPool
