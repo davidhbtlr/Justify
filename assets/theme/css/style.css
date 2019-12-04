@@ -50,9 +50,10 @@ pre {
   -webkit-justify-content: center; }
 
 a {
+  font-family: "source sans pro";
   font-style: normal;
   font-weight: 400;
-  cursor: pointer; }
+  cursor: pointer;}
   a, a:hover {
     text-decoration: none; }
 
