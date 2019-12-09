@@ -803,6 +803,46 @@
             "spotify:album:0unOLK1LbwXR59uJCoq8oj"
         ]
     },
+        {
+        "name": "Placido Domingo",
+        "artist": "spotify:artist:4pU3BpenOZFEBzORx2YBJW",
+        "tracks": [
+            "spotify:track:1XeCCcv0C9vD6Z8P9E8uhG",
+            "spotify:track:41ujv4mhxlqR8nlnieDpDp",
+            "spotify:track:3kWvRQrv7vty53aAqVGv6E",
+            "spotify:track:693EbPFZd28oDXXaCRjofp",
+            "spotify:track:0GeVviWG62dYbWgsJ99WDe",
+            "spotify:track:1wgUTAbPQkblN0nykDueMI",
+            "spotify:track:1igX49W93rcpYiYNKggDNx",
+            "spotify:track:22SmTBT1AQQpeH9gyhOOYG",
+            "spotify:track:5XCNRXkTESrJnhQvjYw54L",
+            "spotify:track:2fLD7r6rrtpWQn93LcEx8y"
+        ],
+        "albums": [
+            "spotify:album:5wCJ2vwg6vB8VKQPzYYUla",
+            "spotify:album:1ubqsgixeLC1FWTfOkcLqQ",
+            "spotify:album:24R75hnSI6sTZygtZdYVlP",
+            "spotify:album:4nVWtoKrkJTZyCEiE5i1wP",
+            "spotify:album:2Rg3B4UsA2BfEutcp3JZ7o",
+            "spotify:album:193tJ8bF83GAc6UawIBwhE",
+            "spotify:album:5jdv2zoCNLEmLCMvYd8l1p",
+            "spotify:album:2NYEfnBdoz6d99XG2BVUXB",
+            "spotify:album:0zNmD8kktPROZPgA8n0aNp",
+            "spotify:album:4L5wrjV6rbCo8EOJjoqKXv",
+            "spotify:album:3RKpOaXidnv1Nw4W8yKm7D",
+            "spotify:album:6WvlndXIwcQA0smdt4lu73",
+            "spotify:album:6BjnL3406wDSynjk4e5Mv6",
+            "spotify:album:1rllXZdTsBBmGDhp1j9TLm",
+            "spotify:album:738kiP3hcipsQYcFZICA8H",
+            "spotify:album:5hErzqWZgQlUe927ovHS3z",
+            "spotify:album:5tigLaqLwznmrsDioZ9Z2u",
+            "spotify:album:5oNX5IRL5aXAyqJo5I4k1f",
+            "spotify:album:4lbHaC4qVF1gqhZftMiRkq",
+            "spotify:album:5FhGvdvS2IMPRY0S30kDxs",
+            "spotify:album:0NOIpBzrynX0EynumEY7fs",
+            "spotify:album:0DWNaEAne9TsrrsjvdpojK"
+        ]
+    },
     {
         "name": "R. Kelly",
         "artist": "spotify:artist:2mxe0TnaNL039ysAj51xPQ",
